@@ -243,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1909512764280716}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.4, y: 0, z: 11.28}
+  m_LocalPosition: {x: -1.4, y: 0, z: 11.77}
   m_LocalScale: {x: 0.2000001, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 4345874725073424}
@@ -269,7 +269,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1431096326254716}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.39, y: 0, z: 7.46}
+  m_LocalPosition: {x: -1.39, y: 0, z: 6.99}
   m_LocalScale: {x: 0.20000012, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 4345874725073424}
@@ -282,7 +282,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980262200742516}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7399998, y: 0, z: 10.44}
+  m_LocalPosition: {x: -1.3799992, y: 0, z: 10.44}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 4719651593290732}
@@ -295,7 +295,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882637232205968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.86, y: 0, z: 9.369999}
+  m_LocalPosition: {x: -2.4999995, y: 0, z: 9.369999}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 4719651593290732}
@@ -309,7 +309,7 @@ Transform:
   m_GameObject: {fileID: 1077154818522208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 9.37}
-  m_LocalScale: {x: 0.2, y: 1, z: 4}
+  m_LocalScale: {x: 0.2, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 4345874725073424}
   m_RootOrder: 0
@@ -337,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480240310363042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.74, y: 0, z: 9.37}
+  m_LocalPosition: {x: -1.3799994, y: 0, z: 9.37}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 4719651593290732}
@@ -350,7 +350,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870051047872212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.1, y: 0.5, z: 36.61}
+  m_LocalPosition: {x: 19.1, y: 0.5, z: 39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4345874725073424}
@@ -371,7 +371,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1308790857179884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8999996, y: 0, z: 8.27}
+  m_LocalPosition: {x: -2.539999, y: 0, z: 8.27}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 4719651593290732}
@@ -384,7 +384,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1276291931049830}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7399998, y: 0, z: 8.27}
+  m_LocalPosition: {x: -1.38, y: 0, z: 8.27}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 4719651593290732}
@@ -397,7 +397,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1852551332595540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.9, y: 0, z: 10.439999}
+  m_LocalPosition: {x: -2.5399995, y: 0, z: 10.439999}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 4719651593290732}
@@ -892,8 +892,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPos: {fileID: 4029691875234820}
-  classRoomPos: {fileID: 0}
-  canteenPos: {fileID: 0}
+  classRoomPos1: {fileID: 0}
+  canteenPos1: {fileID: 0}
+  isolatePos1: {fileID: 0}
+  classRoomPos2: {fileID: 0}
+  canteenPos2: {fileID: 0}
+  isolatePos2: {fileID: 0}
 --- !u!114 &114539325952551330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -906,8 +910,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPos: {fileID: 4029691875234820}
-  classRoomPos: {fileID: 0}
-  canteenPos: {fileID: 0}
+  classRoomPos1: {fileID: 0}
+  canteenPos1: {fileID: 0}
+  isolatePos1: {fileID: 0}
+  classRoomPos2: {fileID: 0}
+  canteenPos2: {fileID: 0}
+  isolatePos2: {fileID: 0}
 --- !u!114 &114598364819547376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -920,8 +928,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPos: {fileID: 4029691875234820}
-  classRoomPos: {fileID: 0}
-  canteenPos: {fileID: 0}
+  classRoomPos1: {fileID: 0}
+  canteenPos1: {fileID: 0}
+  isolatePos1: {fileID: 0}
+  classRoomPos2: {fileID: 0}
+  canteenPos2: {fileID: 0}
+  isolatePos2: {fileID: 0}
 --- !u!114 &114732922058041798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -934,8 +946,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPos: {fileID: 4029691875234820}
-  classRoomPos: {fileID: 0}
-  canteenPos: {fileID: 0}
+  classRoomPos1: {fileID: 0}
+  canteenPos1: {fileID: 0}
+  isolatePos1: {fileID: 0}
+  classRoomPos2: {fileID: 0}
+  canteenPos2: {fileID: 0}
+  isolatePos2: {fileID: 0}
 --- !u!114 &114742992953436132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -948,8 +964,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPos: {fileID: 4029691875234820}
-  classRoomPos: {fileID: 0}
-  canteenPos: {fileID: 0}
+  classRoomPos1: {fileID: 0}
+  canteenPos1: {fileID: 0}
+  isolatePos1: {fileID: 0}
+  classRoomPos2: {fileID: 0}
+  canteenPos2: {fileID: 0}
+  isolatePos2: {fileID: 0}
 --- !u!114 &114790087667713038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -962,8 +982,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPos: {fileID: 4029691875234820}
-  classRoomPos: {fileID: 0}
-  canteenPos: {fileID: 0}
+  classRoomPos1: {fileID: 0}
+  canteenPos1: {fileID: 0}
+  isolatePos1: {fileID: 0}
+  classRoomPos2: {fileID: 0}
+  canteenPos2: {fileID: 0}
+  isolatePos2: {fileID: 0}
 --- !u!135 &135066141697217440
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1045,11 +1069,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 13
-  m_Acceleration: 8
+  m_Speed: 40
+  m_Acceleration: 40
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 200
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1066,11 +1090,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 13
-  m_Acceleration: 8
+  m_Speed: 40
+  m_Acceleration: 40
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 200
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1087,11 +1111,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 13
-  m_Acceleration: 8
+  m_Speed: 40
+  m_Acceleration: 40
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 200
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1108,11 +1132,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 13
-  m_Acceleration: 8
+  m_Speed: 40
+  m_Acceleration: 40
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 200
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1129,11 +1153,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 13
-  m_Acceleration: 8
+  m_Speed: 40
+  m_Acceleration: 40
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 200
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1150,11 +1174,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 13
-  m_Acceleration: 8
+  m_Speed: 40
+  m_Acceleration: 40
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 200
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 /**
- * 潜伏期感染率:2%
- * 生病期感染率:5%
- * 总抗体率:50%
- * 抗体强度:20个单位，每次被感染消耗一个单位
+ * 潜伏期感染率:不戴口罩被感染率:4%  戴口罩被感染率:1%
+ * 生病期感染率:不戴口罩被感染率:8%  戴口罩被感染率:2%
+ * 抗体强度:2-10个单位，每次被感染消耗一个单位
  */
 public enum Status
 {
@@ -32,31 +31,64 @@ public enum HealthLevel
 
 public class People : MonoBehaviour {
 
+    //教室，隔离室，食堂有两个地点方位，随机选择去哪个
     public Transform roomPos;
-    public Transform classRoomPos;
-    public Transform canteenPos;
-    public Transform isolatePos;
+    public Transform classRoomPos1;
+    public Transform canteenPos1;
+    public Transform isolatePos1;
+    public Transform classRoomPos2;
+    public Transform canteenPos2;
+    public Transform isolatePos2;
 
-    private Transform startPos;
-    private HealthLevel healthLevel = HealthLevel.HEALTH;
+    private Transform classRoomPos;
+    private Transform canteenPos;
+    private Transform isolatePos;
+
+    private HealthLevel healthLevel = HealthLevel.HEALTH;   //健康等级
     private NavMeshAgent agent;
 
     private Status state = Status.IDLETIME; //当前学生在做什么
-    private float incubDays = 1;
+    private int maxImmunity = 10;           //最大抵抗力单位
+    private int minImmunity = 2;            //最小抵抗力单位
+    private int infectionRate = 400;        //潜伏期感染率
+    private int illInfectionRate = 800;     //生病期感染率
+    private int maxDays = 10;
+    private int minDays = 3;
+    private int immunity = 0;               //抵抗力
+    private float incubDays = 1;            //多少天后发病
     private bool goRoom = false;    //发生紧急事件立即回寝室隔离
     private bool toIsolate = false; //是否需要被隔离
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        startPos = this.gameObject.transform;
     }
 
 	// Use this for initialization
 	void Start () {
 
+        int r = Random.Range(0, 2);
+        if (0 == r)
+        {
+            classRoomPos = classRoomPos1;
+            canteenPos = canteenPos1;
+            isolatePos = isolatePos1;
+        }
+        else
+        {
+            classRoomPos = classRoomPos2;
+            canteenPos = canteenPos2;
+            isolatePos = isolatePos2;
+        }
+
+        if(Manager.Instance.protectFlag)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = Manager.Instance.protect;
+            infectionRate = 100;
+            illInfectionRate = 200;
+        }
         Manager.Instance.AddPeople(this);
-        
+        immunity = Random.Range(minImmunity, maxImmunity);
 
     }
 	
@@ -67,8 +99,9 @@ public class People : MonoBehaviour {
         if (healthLevel == HealthLevel.INCUBATION && Manager.Instance.GetDays() >= incubDays)
         {
             SetHealthLevel(HealthLevel.ILL);
-            //Manager.Instance.Emergency();
+            //Manager.Instance.Emergency();     //是否发布紧急事件，发布后全部回房间隔离
             toIsolate = true;
+            goRoom = false;
             state = Status.ISOLATETIME;
         }
             
@@ -85,22 +118,22 @@ public class People : MonoBehaviour {
                 state = Status.LUNCHTIME;
                 agent.destination = classRoomPos.position;
             }
-            else if (Manager.Instance.GetHours() > 12 && Manager.Instance.GetHours() <= 14 && state == Status.LUNCHTIME)
+            else if (Manager.Instance.GetHours() > 12 && Manager.Instance.GetHours() <= 15 && state == Status.LUNCHTIME)
             {
                 state = Status.AFTERMOONTIME;
                 agent.destination = canteenPos.position;
             }
-            else if (Manager.Instance.GetHours() > 14 && Manager.Instance.GetHours() <= 18 && state == Status.AFTERMOONTIME)
+            else if (Manager.Instance.GetHours() > 15 && Manager.Instance.GetHours() <= 18 && state == Status.AFTERMOONTIME)
             {
                 state = Status.DINNERTIME;
                 agent.destination = classRoomPos.position;
             }
-            else if (Manager.Instance.GetHours() > 18 && Manager.Instance.GetHours() <= 20 && state == Status.DINNERTIME)
+            else if (Manager.Instance.GetHours() > 18 && Manager.Instance.GetHours() <= 21 && state == Status.DINNERTIME)
             {
                 state = Status.RESTTIME;
                 agent.destination = canteenPos.position;
             }
-            else if (Manager.Instance.GetHours() > 20 && Manager.Instance.GetHours() <= 23 && state == Status.RESTTIME)
+            else if (Manager.Instance.GetHours() > 21 && Manager.Instance.GetHours() <= 23 && state == Status.RESTTIME)
             {
                 state = Status.IDLETIME;
                 agent.destination = roomPos.position;
@@ -127,7 +160,7 @@ public class People : MonoBehaviour {
                 agent.destination = roomPos.position;
             }
         }
-        else if(toIsolate == true)
+        else if(goRoom == false && toIsolate == true)
         {
             if(state == Status.ISOLATETIME)
             {
@@ -148,12 +181,12 @@ public class People : MonoBehaviour {
     {
         if(collision.gameObject.tag == "People")
         {
-            float probability = Random.Range(0, 10000);
-            if(probability >=0.0f && probability < 200.0f && this.healthLevel == HealthLevel.INCUBATION)
+            int probability = Random.Range(0, 10000);
+            if(probability >=0 && probability < infectionRate && this.healthLevel == HealthLevel.INCUBATION)
             {
                 collision.gameObject.SendMessage("Incubation");
             }
-            else if(probability >= 0.0f && probability < 300.0f && this.healthLevel == HealthLevel.ILL)
+            else if(probability >= 0 && probability < illInfectionRate && this.healthLevel == HealthLevel.ILL)
             {
                 collision.gameObject.SendMessage("Incubation");
             }
@@ -173,7 +206,7 @@ public class People : MonoBehaviour {
                 break;
             case HealthLevel.INCUBATION:
                 this.gameObject.GetComponent<MeshRenderer>().material = Manager.Instance.incubation;
-                this.incubDays = Random.Range(3, 7);
+                this.incubDays = Random.Range(minDays, maxDays) + Manager.Instance.GetDays();
                 break;
             case HealthLevel.ILL:
                 this.gameObject.GetComponent<MeshRenderer>().material = Manager.Instance.ill;
@@ -194,9 +227,13 @@ public class People : MonoBehaviour {
      */
     public void Incubation()
     {
-        if(healthLevel == HealthLevel.HEALTH)
+        if(healthLevel == HealthLevel.HEALTH && immunity <=0)
         {
             SetHealthLevel(HealthLevel.INCUBATION);
+        }
+        else
+        {
+            immunity--;
         }
     }
 
